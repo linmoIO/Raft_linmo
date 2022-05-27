@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Server2" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="src.Main" />
+    <module name="raft" />
+    <option name="PROGRAM_PARAMETERS" value="--config_path server002.conf" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="src.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

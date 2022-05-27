@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tester" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="test.TestMain" />
+    <module name="raft" />
+    <option name="PROGRAM_PARAMETERS" value="--config_path tester.conf" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

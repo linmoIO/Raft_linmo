@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Server5" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="src.Main" />
+    <module name="raft" />
+    <option name="PROGRAM_PARAMETERS" value="--config_path server005.conf" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
