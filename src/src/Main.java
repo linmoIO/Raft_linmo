@@ -39,7 +39,7 @@ public class Main {
     /****************** Debug设置 ******************/
     /* debug设置函数 */
     static void my_debug() throws InterruptedException, IOException {
-        int n = 1;      // 放慢倍率（用于放慢时间，便于观察
+        int n = 1;      // 放慢倍率（用于放慢时间，便于观察）
         // 对时间进行乘倍操作
         ele_time_l*=n;
         ele_time_r*=n;
