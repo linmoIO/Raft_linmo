@@ -1,6 +1,6 @@
 package lib;
 
-import src.Server;
+import raft.Server;
 
 import java.util.*;
 

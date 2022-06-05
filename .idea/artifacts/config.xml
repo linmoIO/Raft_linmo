@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="config">
+    <output-path>$PROJECT_DIR$/jar</output-path>
+    <root id="archive" name="config.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/jar/config/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="raft" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.16/lombok-1.18.16.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/19.0.0/annotations-19.0.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
