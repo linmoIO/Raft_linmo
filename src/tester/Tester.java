@@ -1,6 +1,7 @@
 package tester;
 
 import lib.Global;
+import lombok.SneakyThrows;
 
 import java.io.*;
 import java.net.Socket;
@@ -62,20 +63,8 @@ public class Tester {
                 }
                 String s = new RESP().Inst2RESP(inst);
                 for(IP_Port ip_port:others){    // 对服务器组群中的每一个服务器发送请求
-                    // 尝试获取socket
-                    Socket socket = null;
-                    try{
-                        socket = new Socket(ip_port.getIp(),ip_port.getPort());
-                    } catch (Exception e){
-                        info_p("目标Server"+ip_port.getString()+"不存在");
-                        continue;
-                    }
-                    if(socket==null){continue;}
-                    // 根据获取的到socket进行发送和等待信息
-                    Thread thread_send = new Thread(new SendTester(socket,s));
-                    thread_send.start();
-                    Thread thread_receive = new Thread(new ReceiveTester(socket));
-                    thread_receive.start();
+                    Thread thread_send_inst = new Thread(new SendInst(ip_port, s));
+                    thread_send_inst.start();
                 }
                 tester_timer = new Timer();
                 tester_timer.schedule(new WaitTimeOut(), 5000);
@@ -211,6 +200,33 @@ public class Tester {
             }
         }
         return res;
+    }
+
+    /****************** 发送指令操作 ******************/
+    public static class SendInst implements Runnable {
+        IP_Port ip_port;
+        String s;
+        public SendInst(IP_Port ip_port, String s){
+            this.ip_port=ip_port;
+            this.s=s;
+        }
+        @SneakyThrows
+        public void run(){
+            // 尝试获取socket
+            Socket socket = null;
+            try{
+                socket = new Socket(ip_port.getIp(),ip_port.getPort());
+            } catch (Exception e){
+                // info_p("目标Server"+ip_port.getString()+"不存在");
+            }
+            if(socket!=null){
+                // 根据获取的到socket进行发送和等待信息
+                Thread thread_send = new Thread(new SendTester(socket,s));
+                thread_send.start();
+                Thread thread_receive = new Thread(new ReceiveTester(socket));
+                thread_receive.start();
+            }
+        }
     }
 
     /****************** 超时操作 ******************/
