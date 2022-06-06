@@ -2,7 +2,7 @@
   <configuration default="false" name="Config" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="conf.Config" />
     <module name="raft" />
-    <option name="PROGRAM_PARAMETERS" value="-n 3" />
+    <option name="PROGRAM_PARAMETERS" value="-n 5" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
