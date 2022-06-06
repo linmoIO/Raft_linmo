@@ -251,11 +251,13 @@ public class Tester {
 
     /****************** 打印测试信息 ******************/
     public void print_score(){
-        info_p("\n>>>>>>******------------------ score ------------------******<<<<<<");
-        info_p("                    total: "+total);
-        info_p("                    RIGHT: "+RIGHT_check_num);
-        info_p("                    WRONG: "+WRONG_check_num);
-        info_p("                    ERROR: "+ERROR_check_num);
-        info_p(">>>>>>******------------------  end  ------------------******<<<<<<\n");
+        info_p("\n");
+        info_p(">>>>>>******------------------ SCORE ------------------******<<<<<<");
+        info_p("                            TOTAL: "+total);
+        info_p("                            RIGHT: "+RIGHT_check_num);
+        info_p("                            WRONG: "+WRONG_check_num);
+        info_p("                            ERROR: "+ERROR_check_num);
+        info_p(">>>>>>******------------------  END  ------------------******<<<<<<");
+        info_p("\n");
     }
 }
