@@ -48,13 +48,7 @@ public class Deal {
         // 将读取到的信息转化为Inst
         Inst inst = new RESP().RESP2Inst(s);
         // 根据不同指令分情况处理
-        if(inst.getOpt()==Opt.SET){
-            Entry entry = new Entry(server.term,inst);
-            server.log.add(entry);
-            server.OK_num.putIfAbsent(server.log.indexOf(entry),1);
-            server.TXQ.put(server.log.indexOf(entry),socket);
-        }
-        else if (inst.getOpt()==Opt.GET){
+        if (inst.getOpt()==Opt.GET){
             // 处理GET（直接判断并返回即可，无需加入操作日志）
             String value = server.KV.get(inst.getKey());
             String mes = null;
@@ -68,11 +62,12 @@ public class Deal {
             Thread thread_send = new Thread(new Send(socket,mes));
             thread_send.start();
         }
-        else if (inst.getOpt()==Opt.DEL){
+        else if (inst.getOpt()==Opt.SET||inst.getOpt()==Opt.DEL){
             Entry entry = new Entry(server.term,inst);
             server.log.add(entry);
             server.OK_num.putIfAbsent(server.log.indexOf(entry),1);
             server.TXQ.put(server.log.indexOf(entry),socket);
+            server.create_heart_beat();
         }
         else{
             // ignore();

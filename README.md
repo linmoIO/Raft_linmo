@@ -214,12 +214,53 @@
 > > 	>
 > > 	> <img src="Markdown图片包/image-20220605143737237.png" alt="image-20220605143737237" style="zoom:80%;" />
 
-### 脚本测试
+### shell脚本运行
 
-> 运行脚本：`./raft.sh -n 3`
+> #### 运行
 >
-> - `-n`表示服务器集群的数量，`-n`后跟着的数字即为服务器数量（例如，10个服务器即输入`-n 10`）
-> - 脚本运行后，在控制台输入数字，即可进行执行本次测试（数字为本次测试的指令数，参考Tester测试器）
+> > - 先进入`Raft_linmo/jar`文件夹下，打开命令行窗口
+> >
+> > 	> <img src="Markdown图片包/image-20220605194058750.png" alt="image-20220605194058750" style="zoom:80%;" />
+> >
+> > - 随后运行脚本raft.sh
+> >
+> > 	> 输入指令`./raft.sh`
+> > 	>
+> > 	> 如果运行正确（如果出现问题，可参考后面的常见问题），应该为
+> > 	>
+> > 	> > <img src="Markdown图片包/image-20220605194144114.png" alt="image-20220605194144114" style="zoom:80%;" />
+> >
+> > - 输入集群数量
+> >
+> > 	> <img src="Markdown图片包/image-20220605194226230.png" alt="image-20220605194226230" style="zoom:80%;" />
+> >
+> > - 输入测试指令数量，即可测试
+> >
+> > 	> <img src="Markdown图片包/image-20220605194301714.png" alt="image-20220605194301714" style="zoom: 80%;" />
+> > 	>
+> > 	> <img src="Markdown图片包/image-20220605194320059.png" alt="image-20220605194320059" style="zoom:80%;" />
+>
+> #### 常见问题
+>
+> > - 格式不符合
+> >
+> > 	> 即报错
+> > 	>
+> > 	> ````shell
+> > 	> -bash: ./raft.sh: /bin/bash^M: bad interpreter: No such file or directory
+> > 	> ````
+> > 	>
+> > 	> 可通过指令`dos2unix raft.sh`解决（如果没有`dos2unix`，可通过`sudo apt install dos2unix`进行自动安装）
+> >
+> > - 不是可执行文件
+> >
+> > 	> 即报错
+> > 	>
+> > 	> ```shell
+> > 	> -bash: ./raft.sh: Permission denied
+> > 	> ```
+> > 	>
+> > 	> 可通过指令`chmod +777 raft.sh`给脚本赋予可执行权限
 
 ### 指令
 

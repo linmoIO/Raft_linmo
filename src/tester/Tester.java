@@ -58,7 +58,7 @@ public class Tester {
                 if_receive = false;     // 设置未接收到信息
                 inst = create_inst();   // 随机化生成指令
                 if(detail){             // 根据是否显示细节进行打印
-                    info_p(inst.get_String());
+                    info_p(i+" : "+inst.get_String());
                 }
                 String s = new RESP().Inst2RESP(inst);
                 for(IP_Port ip_port:others){    // 对服务器组群中的每一个服务器发送请求
@@ -84,12 +84,12 @@ public class Tester {
                 }
                 Tester.flush_time();
                 check_inst(inst);   // 进行判断是否正确
+                if(i%1000==0){
+                    print_score();
+                }
             }
             // 输出本次测试的结果
-            info_p("total: "+total);
-            info_p("RIGHT: "+RIGHT_check_num);
-            info_p("WRONG: "+WRONG_check_num);
-            info_p("ERROR: "+ERROR_check_num);
+            print_score();
         }
     }
 
@@ -231,5 +231,15 @@ public class Tester {
             tester_timer.cancel();
         }
         tester_timer = null;
+    }
+
+    /****************** 打印测试信息 ******************/
+    public void print_score(){
+        info_p("\n>>>>>>******------------------score------------------******<<<<<<");
+        info_p("                    total: "+total);
+        info_p("                    RIGHT: "+RIGHT_check_num);
+        info_p("                    WRONG: "+WRONG_check_num);
+        info_p("                    ERROR: "+ERROR_check_num);
+        info_p(">>>>>>******------------------end------------------******<<<<<<\n");
     }
 }
