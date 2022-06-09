@@ -6,6 +6,7 @@ import lombok.SneakyThrows;
 import java.io.IOException;
 import java.net.Socket;
 
+import static java.lang.Thread.sleep;
 import static lib.Global.*;
 
 /*
@@ -41,7 +42,11 @@ public class Deal {
         }
     }
     public void deal_outer() throws IOException {   // 外部信息处理
-        if(server.type!=Server_t.LEADER){   // 若不是LEADER，无需回复客户端的信息
+        if(server.type==Server_t.CANDIDATE){    // 若是候选者，则等待选举完毕
+            while(server.type==Server_t.CANDIDATE){
+            }
+        }
+        if(server.type==Server_t.FOLLOWER){     // 若是Follower，无需回复客户端的信息
             socket.close();
             return;
         }

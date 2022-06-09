@@ -67,7 +67,7 @@ public class Tester {
                     thread_send_inst.start();
                 }
                 tester_timer = new Timer();
-                tester_timer.schedule(new WaitTimeOut(), 5000);
+                tester_timer.schedule(new WaitTimeOut(), 20000);
                 while(!if_receive){ // 等待，直到接收到信息
                     sleep(1);
                 }
